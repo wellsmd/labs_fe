@@ -1,8 +1,10 @@
 import { useState } from 'react'
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 function SigninForm() {
 
+  const navigate = useNavigate();
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
   function handleChangeUsername(e) {
@@ -18,7 +20,8 @@ function SigninForm() {
     .then(res => res.data)
     .then(data => {
       localStorage.setItem("token", data.accessToken);
-      window.location.href = "./dashboard";
+      // window.location.href = "./dashboard";
+      navigate("/dashboard");
     })
     .catch(err => console.log(err))
   }

@@ -1,15 +1,18 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import axios from 'axios';
 
 export default function Dashboard({handleSignout}) {
 
+    const navigate = useNavigate();
     const [assignments, setAssignments] = useState([]);
 
     useEffect(() => {
       const token = localStorage.getItem("token");
 
       if (!token) {
-        window.location.href = "/sign-in"
+        // window.location.href = "/sign-in"
+        navigate("/sign-in");
       }
   
       const headers = {
