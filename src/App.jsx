@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import axios from 'axios';
-import { Route, Routes, Link } from 'react-router-dom';
+import { Route, Routes, Link, useNavigate } from 'react-router-dom';
 import './App.css'
 import SignupForm from './components/sign-up';
 import SigninForm from './components/sign-in';
@@ -8,6 +8,7 @@ import Dashboard from './components/dashboard';
 import Home from "./components/home";
 
 function App() {
+  const navigate = useNavigate();
 
   function createAssignment() {
     const newAssignment = {
@@ -37,7 +38,8 @@ function App() {
   function handleSignout(e) {
     e.preventDefault();
     localStorage.removeItem("token");
-    window.location.href = "/sign-in";
+    // window.location.href = "/sign-in";
+    navigate("/sign-in");
   }
 
   return (
