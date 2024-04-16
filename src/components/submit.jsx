@@ -1,8 +1,10 @@
-function Submit({}) {
+import axios from "axios";
+
+export default function Submit({}) {
 
     return (
         <>
-            <img src="./learner_assignment_view.jpg" width="500" height="600"></img>
+            <img src="http://www.solarbenite.nu/images/learner_assignment_view.jpg"></img>
         </>
     )
 }

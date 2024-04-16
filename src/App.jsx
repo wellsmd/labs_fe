@@ -7,6 +7,7 @@ import SigninForm from './components/sign-in';
 import Dashboard from './components/dashboard';
 import Home from "./components/home";
 import HomePrivate from './components/home-private';
+import Submit from './components/submit';
 
 function App() {
   const navigate = useNavigate();
@@ -29,7 +30,7 @@ function App() {
       "Content-Type": "application/json"
     }
 
-    axios.post("http://localhost:8080/api/assignments", newAssignment, {headers: headers})
+    axios.post("/api/api/assignments", newAssignment, {headers: headers})
     .then(res => res.data)
     .then(data => console.log(data))
     .catch(err => console.log(err))
@@ -64,7 +65,7 @@ function App() {
         <Route path="/sign-up" element={<SignupForm />} />
         <Route path="/sign-in" element={<SigninForm />} />
         <Route path="/dashboard" element={<Dashboard handleSignout={handleSignout} />} />
-        {/* <Route path="/submit" element={<Submit />} /> */}
+        <Route path="/submit" element={<Submit />} />
       </Routes>
       </div>
     </div>

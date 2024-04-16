@@ -16,10 +16,10 @@ function SigninForm() {
 
   function handleSignin(e) {
     e.preventDefault();
-    axios.post("http://localhost:8080/api/auth/login", {username, password})
+    axios.post("/api/api/auth/login", {username, password})
     .then(res => res.data)
     .then(data => {
-      localStorage.setItem("token", data.accessToken);
+      localStorage.setItem("token", data);
       navigate("/dashboard");
     })
     .catch(err => console.log(err))

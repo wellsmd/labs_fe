@@ -16,9 +16,9 @@ function SignupForm() {
 
   function handleSignup(e) {
     e.preventDefault();
-    axios.post("http://localhost:8080/api/auth/signup", {username, password})
+    axios.post("/api/api/auth/signup", {username, password})
     .then(res => {
-      localStorage.setItem("token", data.accessToken);
+      localStorage.setItem("token", data);
       navigate("/dashboard");
     })
     .catch(err => console.log(err))
