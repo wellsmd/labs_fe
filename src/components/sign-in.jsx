@@ -16,11 +16,10 @@ function SigninForm() {
 
   function handleSignin(e) {
     e.preventDefault();
-    axios.post("https://assignment-backend-1-4g7d.onrender.com/login", {username, password})
+    axios.post("http://localhost:8080/api/auth/login", {username, password})
     .then(res => res.data)
     .then(data => {
       localStorage.setItem("token", data.accessToken);
-      // window.location.href = "./dashboard";
       navigate("/dashboard");
     })
     .catch(err => console.log(err))

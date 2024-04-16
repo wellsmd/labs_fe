@@ -16,12 +16,10 @@ function SignupForm() {
 
   function handleSignup(e) {
     e.preventDefault();
-    axios.post("https://assignment-backend-1-4g7d.onrender.com/signup", {username, password})
+    axios.post("http://localhost:8080/api/auth/signup", {username, password})
     .then(res => {
       localStorage.setItem("token", data.accessToken);
       navigate("/dashboard");
-      // console.log(res);
-      // alert("Signed up");
     })
     .catch(err => console.log(err))
   }
